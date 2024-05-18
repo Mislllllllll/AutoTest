@@ -4,10 +4,11 @@ from django.contrib import admin
 
 # Register your models here.
 from .models import UserProfile,EmailVerifyRecord,Banner
-class UserProfileAdmin(admin.ModelAdmin):
-    list_display = ['username', 'password', 'gender', 'mobile','image']
-    search_fields = ['username', 'password', 'gender', 'mobile','image']
-    list_filter = ['username', 'password', 'gender', 'mobile','image']
+from django.contrib.auth.admin import UserAdmin
+class UserProfileAdmin(UserAdmin):
+    list_display = ['username', 'password', 'gender', 'mobile','image','email']
+    search_fields = ['username', 'password', 'gender', 'mobile','image','email']
+    list_filter = ['username', 'password', 'gender', 'mobile','image','email']
 
 admin.site.register(UserProfile,UserProfileAdmin)
 
