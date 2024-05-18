@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+{% load static %}
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>首页</title>
-    <link rel="stylesheet" href="/static/css/login.css">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
 </head>
 <body>
-<img src="/static/images/index/map.png">
+<img src="{% static 'images/index/map.png' %}">
     <div class="content">
         <h1>欢迎来到自动化测试平台</h1>
         <p>这里有你需要的信息。</p>
-        <a href="/login/">登录</a>
+        <a href="{% url 'register' %}">注册</a>
+        <a href="{% url 'login' %}">登录</a>
     </div>
 </body>
 </html>
