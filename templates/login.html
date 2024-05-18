@@ -10,17 +10,17 @@
 <body>
     <div class="login-container">
         <form action="/login/" method="post">
-            <div>
+            <div {% if login_form.errors.username %}{% endif %}>
                 <label for="username">Username:</label>
                 <input type="text" id="username" name="username" required>
             </div>
-            <div>
+            <div {% if login_form.errors.password %}{% endif %}>
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" required>
             </div>
             <div>
                 <input type="submit" value="Login">
-                {% if error %}<p>{{ error }}{% endif %}
+                <div><p>{% for error in login_form.errors.items %}{{ error }}{% endfor %}{{ msg }}</p></div>
             </div>
             {% csrf_token %}
         </form>
