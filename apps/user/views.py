@@ -9,7 +9,7 @@ from django.contrib.auth.decorators import login_required
 from .models import UserProfile
 from django.views.generic.base import View
 
-from .forms import LoginForm
+from .forms import LoginForm,RegisterForm
 
 # Create your views here.
 class CustomBackend(ModelBackend):
@@ -23,6 +23,7 @@ class CustomBackend(ModelBackend):
 
 class RegisterView(View):
     def get(self,request):
+        register_form=RegisterForm
         return render(request,"register.html")
 
 class LoginView(View):
